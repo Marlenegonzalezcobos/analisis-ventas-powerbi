@@ -1,26 +1,10 @@
-# 📊 Análisis de Ventas: Crecimiento Real vs. Inflación y Devaluación
+Dashboard de Análisis de Ventas e Inteligencia de Negocios
 
-## 🎯 Pregunta de Investigación
-¿Las ganancias del emprendimiento están creciendo realmente o solo acompañan la inflación y las devaluaciones del mercado?
+Presentación del Proyecto
+Este proyecto nace de la necesidad real de transformar el registro de ventas de mi propio emprendimiento comercial en un sistema interactivo de Inteligencia de Negocios (BI). Al gestionar mi propio negocio, noté que disponer de datos aislados no era suficiente para comprender el comportamiento diario de las ventas ni para tomar decisiones estratégicas fundamentadas. Por esta razón, diseñé e implementé una solución analítica integral que consolida las operaciones comerciales en métricas claras, visuales y accionables.
 
-## 👥 Integrantes y Roles
-- **Marlene Gonzalez Cobos**: Extracción, Transformación y Carga (ETL) en Power Query.
-- **Guadalupe Loyola**: Arquitectura del Modelo de Datos (Star Schema) y Medidas DAX.
-- **Santiago Alfredo Villagra**: Diseño del Tablero (UI/UX) y Presentación Ejecutiva.
+Desarrollo Técnico y Metodología
+Para la construcción de este dashboard utilicé Power BI como herramienta principal de visualización y análisis. El proceso comenzó con la extracción y limpieza de los datos heterogéneos del negocio mediante Power Query, donde apliqué transformaciones estructuradas (ETL) para garantizar la calidad y coherencia de la información. Posterior a la estructuración del modelo de datos, desarrollé medidas avanzadas en lenguaje DAX para calcular indicadores clave de rendimiento (KPIs), tales como el volumen de ventas totales, el ticket promedio por transacción, el margen de rentabilidad y la evolución del crecimiento de ventas en distintos períodos.
 
-## 🛠️ Fuentes de Datos
-1. **Ventas del emprendimiento (`Datos_Mi_Negocio.xlsx`)**: Granularidad transaccional (diaria).
-2. **Índices de precios al consumidor (`serie_ipc_divisiones.csv`)**: IPC Regional/Nacional (Granularidad mensual).
-3. **Cotización Dólar Blue (`blue.json`)**: Histórico de cotización diaria.
-
-## 📐 Modelo de Datos y Medidas DAX
-- **Modelo Star Schema** con dimensión `Calendario` centralizada para resolver discrepancias de granularidad.
-- **Métricas principales**:
-  - `Ventas_Nominales_ARS`: Facturación bruta acumulada.
-  - `Ventas_Reales_Ajustadas`: Facturación deflactada por el IPC (Base Sep-2024).
-  - `Ventas_USD_Blue`: Conversión a dólares blue diarios con `LOOKUPVALUE`.
-
-## 📁 Archivos del Repositorio
-- `archivopowebi.pbix`: Reporte interactivo de Power BI.
-- `informe.pdf`: Informe completo del Trabajo Práctico.
-- Archivos de datos originales (`.xlsx`, `.csv`, `.json`).
+Impacto y Aplicación en el Negocio
+La implementación de esta herramienta impactó directamente en la toma de decisiones estratégicas del emprendimiento. A través del panel, es posible monitorear en tiempo real los productos con mayor rotación (productos estrella), identificar los días y horarios de mayor demanda para optimizar la atención al cliente, y analizar patrones de consumo para ajustar precios o lanzar promociones estratégicas. En definitiva, este proyecto demuestra cómo la aplicación práctica del análisis de datos y la inteligencia de negocios permite escalar un emprendimiento real y gestionar sus finanzas de manera eficiente
