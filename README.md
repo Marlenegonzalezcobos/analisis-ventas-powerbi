@@ -2,7 +2,13 @@
 
 Dashboard interactivo en **Power BI** que transforma los registros de ventas e ingresos diarios de mi emprendimiento (clases particulares de Química Biológica) en indicadores claros para tomar decisiones, y que además compara la evolución de los ingresos con la **inflación (IPC)** y la **cotización del dólar**.
 
-![Vista general del dashboard](capturas/dashboard-general.png)
+[Vista general del dashboard](capturas/dashboard-general.png)
+
+### Ingresos mensuales en dólares
+![Ingresos mensuales en USD](capturas/ingresos-usd.png)
+
+### ¿Crecimiento real o inflación?
+![Ventas nominales vs. ventas reales ajustadas](capturas/crecimiento-vs-inflacion.png)
 
 ## 🎯 Objetivo
 
@@ -39,10 +45,25 @@ Pasar de anotaciones hechas a mano a un sistema de análisis que responda pregun
 
 ## 🔍 Principales hallazgos
 
-> Completar con 3 o 4 conclusiones concretas, por ejemplo:
-> - [Qué días y horarios tienen más demanda]
-> - [Qué servicio o producto es el más rentable]
-> - [Si los ingresos acompañaron o no a la inflación en el período analizado]
+- Comparando enero–agosto de 2026 con el mismo período de 2025, las ventas
+  nominales en pesos crecieron un 88,9%, mientras que las ventas reales
+  (ajustadas por IPC, a pesos de septiembre de 2024) crecieron un 42,2%:
+  los ingresos superaron a la inflación.
+- Julio de 2026 fue el mes de mayores ingresos de la serie (en dólares).
+- [Un tercer hallazgo: por ejemplo, qué meses del año suelen ser más bajos]
+
+⚠️ Septiembre–diciembre de 2025 no tienen datos (registros físicos
+dañados), por lo que se excluyeron de las comparaciones.
+
+⚠️ Septiembre–diciembre de 2025 no tienen datos (registros físicos dañados),
+por lo que se excluyen de las comparaciones.
+
+## ⚠️ Limitaciones
+
+- Parte de los registros físicos de [período] se dañaron y no pudieron
+  digitalizarse, por lo que los datos de esos meses están incompletos.
+- Próximo paso: reconstruir esos períodos a partir de los movimientos
+  bancarios (ver proyecto 2, en desarrollo).
 
 ## 🛠️ Tecnologías
 
