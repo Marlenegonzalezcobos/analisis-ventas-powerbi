@@ -1,54 +1,59 @@
-# 📊 Dashboard de análisis de ventas: crecimiento real vs. inflación (Power BI)
+# Dashboard de análisis de ventas e inteligencia de negocios
 
-Dashboard interactivo en **Power BI** que transforma los registros de ventas e ingresos diarios de mi emprendimiento (clases particulares) en indicadores claros para tomar decisiones. Además compara la evolución de los ingresos con la **inflación (IPC)** y la **cotización del dólar blue** para responder una pregunta concreta: ¿los ingresos le ganaron a la inflación?
+Tablero interactivo en Power BI construido a partir de los registros de ventas de mi propio emprendimiento (clases particulares). Busca responder tres cosas: cómo evolucionan los ingresos en el tiempo, si acompañan a la inflación y en qué momentos se concentra la demanda.
 
-![Vista general del dashboard](capturas/dashboard-general.png.png)
+**Herramientas:** Power BI · Power Query · DAX · Excel · JSON · CSV
 
-## 🎯 Objetivo
+## Preguntas que responde el análisis
 
-Pasar de anotaciones hechas a mano a un sistema de análisis que responda:
+- ¿Cuáles son los productos de mayor rotación y los días de mayor demanda?
+- ¿Los ingresos crecieron en términos reales o solo en pesos corrientes?
+- ¿Cómo se ven los ingresos expresados en dólares?
+- ¿En qué épocas del año se concentra la demanda?
 
-- ¿Cuánto vendo por período y cómo evoluciona el crecimiento?
-- ¿Cuál es el ticket promedio y el margen de rentabilidad?
-- ¿Mis ingresos acompañaron o superaron a la inflación?
-- ¿Cómo evolucionan mis ingresos medidos en dólares?
+## Datos
 
-## 🗂️ Fuentes de datos
-
-| Archivo | Formato | Contenido |
+| Fuente | Archivo | Contenido |
 |---|---|---|
-| `Datos_Mi_Negocio.xlsx` | Excel | Registro de ventas e ingresos diarios (digitalizado desde papel) |
-| `blue.json` | JSON | Cotización del dólar blue |
-| `serie_ipc_divisiones.csv` | CSV | Serie del IPC por divisiones (base dic. 2016 = 100) |
+| Ventas e ingresos diarios | `Datos_Mi_Negocio.xlsx` | Registros escritos a mano, digitalizados en Excel |
+| Cotización del dólar blue | `blue.json` | Serie de cotización usada para expresar los ingresos en USD |
+| Inflación | `serie_ipc_divisiones.csv` | Serie de IPC por divisiones, usada para ajustar los ingresos por inflación |
 
-## ⚙️ Proceso
+**Período analizado:** septiembre de 2024 a septiembre de 2026 (el ajuste por inflación llega hasta agosto de 2026).
 
-1. **Digitalización:** pasé los registros manuales a Excel.
-2. **ETL con Power Query:** extracción, limpieza y transformación de las tres fuentes (Excel, JSON y CSV), unificando formatos de fecha y de números.
-3. **Modelo de datos:** relaciones entre ventas, calendario, cotización e IPC.
-4. **Medidas en DAX:** KPIs, y ventas reales ajustadas por IPC (con `SUMX` para que el cálculo mensual también funcione en los totales).
-5. **Visualización:** tablero interactivo con filtros por período.
+**Dato faltante:** no hay registros de septiembre a diciembre de 2025, porque los registros físicos originales se dañaron. Ese tramo aparece sin datos en el análisis.
 
-## 📈 Visualizaciones
+## Metodología
 
-### Ingresos mensuales en dólares
-![Ingresos mensuales en USD](capturas/ingresos-usd.png.png)
+1. **ETL con Power Query:** integración y limpieza de fuentes heterogéneas (Excel, JSON y CSV), con transformaciones para unificar formatos y fechas.
+2. **Modelo de datos y medidas en DAX:**
+   - Ventas totales, ticket promedio, margen de rentabilidad y crecimiento por período.
+   - Ventas reales ajustadas por inflación (IPC), con base en septiembre de 2024.
+   - Ventas en dólares (cotización blue).
+3. **Visualización:** tablero interactivo con una vista de ingresos mensuales en USD y otra de ventas nominales frente a ventas reales ("¿Crecimiento real o inflación?").
 
-### ¿Crecimiento real o inflación?
-Ventas nominales vs. ventas reales (ajustadas por IPC, expresadas en pesos de septiembre de 2024).
+## Hallazgos
 
-![Ventas nominales vs. ventas reales ajustadas](capturas/crecimiento-vs-inflacion.png.png)
+- Ajustados por inflación, los ingresos crecieron de forma sostenida: el aumento no se explica solo por la suba de precios general.
+- La demanda se concentra en épocas de examen, con picos que se repiten en julio de un año a otro.
+- Expresados en dólares, los ingresos también muestran una tendencia creciente, con los valores más altos durante 2026.
+- Hubo tramos sin crecimiento real, como enero a abril de 2026, posiblemente asociados a la estacionalidad.
 
-### Comparación enero–agosto, 2025 vs. 2026
-![Comparación enero-agosto 2025 vs 2026](capturas/comparacion-ene-ago.png.png)
+## Limitaciones
 
-## 🔍 Principales hallazgos
+- La falta de datos de septiembre a diciembre de 2025 deja afuera meses de alta demanda. Por eso no conviene comparar años calendario completos; es más justo comparar el mismo mes entre años.
+- El análisis mide ingresos: no distingue si el crecimiento vino de más clases, de cambios de precio o de ambos.
 
-- Comparando **enero–agosto de 2026 con el mismo período de 2025**, las ventas nominales en pesos crecieron **88,9%**, mientras que las ventas reales (ajustadas por IPC) crecieron **42,2%**: los ingresos **superaron a la inflación**.
-- **Julio de 2026** fue el mes de mayores ingresos de la serie en dólares (cerca de USD 960).
-- Las ventas reales terminan en agosto de 2026, el último mes con IPC en la serie utilizada.
+## Próximos pasos
 
-## ⚠️ Limitaciones
+Segundo proyecto: reconstruir los registros faltantes cruzando los movimientos bancarios con los datos existentes, para completar el análisis.
 
-- **Septiembre–diciembre de 2025 no tienen datos:** los registros físicos de esos meses se dañaron y no pudieron digitalizarse. Por eso se excluyen de las comparaciones y se comparan los mismos meses de cada año.
-- Los totales nominales incluyen septiembre de 2026,
+## Cómo explorar el proyecto
+
+- Abrir `archivopowebi.pbix` con Power BI Desktop.
+- O ver el resumen del tablero en `informe.pdf`.
+
+## Autora
+
+**Marlene Gonzalez Cobos** · Estudiante de Tecnicatura en Análisis de Sistemas Informáticos
+[LinkedIn](https://linkedin.com/in/marlene-g-cobos/) · [GitHub](https://github.com/Marlenegonzalezcobos)
