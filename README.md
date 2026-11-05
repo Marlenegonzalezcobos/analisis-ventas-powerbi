@@ -6,7 +6,7 @@ Proyecto de análisis de datos con Power BI sobre las ventas de mi propio empren
 
 ## Vista previa
 
-![Vista previa](capturas/dashboard-general.png)
+![Vista previa](/capturas/dashboard-general.png)
 
 ## Qué hice
 
