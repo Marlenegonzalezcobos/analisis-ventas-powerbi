@@ -71,7 +71,5 @@ Segundo proyecto: reconstruir los registros faltantes cruzando los movimientos b
 - Abrir `archivopowebi.pbix` con Power BI Desktop.
 - O ver el resumen del tablero en `informe.pdf`.
 
-## Autora
-
-**Marlene Gonzalez Cobos** · Estudiante de Tecnicatura en Análisis de Sistemas Informáticos
+**Autora:** Marlene González Cobos, estudiante de la Tecnicatura en Análisis de Sistemas Informáticos en la ESCMB (Escuela Superior de Comercio Manuel Belgrano), Córdoba.
 [LinkedIn](https://linkedin.com/in/marlene-g-cobos/) · [GitHub](https://github.com/Marlenegonzalezcobos)
