@@ -27,7 +27,7 @@ Proyecto de análisis de datos con Power BI sobre las ventas de mi propio empren
 
 - **Faltan los registros de septiembre a diciembre de 2025** (el registro físico original se dañó). En el gráfico de línea ese tramo une agosto 2025 con enero 2026, así que **no refleja datos reales**. El tablero lo aclara con una nota.
 - Los datos se cargan manualmente. No es un tablero en tiempo real.
-- [Completar: qué serie o división del IPC usaste y cómo ajustaste las ventas.]
+- Para ajustar por inflación usé el IPC nacional del INDEC, nivel general. Deflacté las ventas con ese índice tomando como base septiembre de 2024 (el primer mes de datos), así que las ventas reales están expresadas en pesos de esa fecha. La conversión a dólares se hace día por día con la cotización del dólar blue.
 
 ## Próximo paso
 
