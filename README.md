@@ -1,36 +1,54 @@
-# Dashboard de análisis de ventas e inteligencia de negocios
+# Dashboard de ventas: crecimiento real vs. inflación y devaluación
 
-Tablero interactivo en Power BI construido a partir de los registros de ventas de mi propio emprendimiento (clases particulares). Busca responder tres cosas: cómo evolucionan los ingresos en el tiempo, si acompañan a la inflación y en qué momentos se concentra la demanda.
+Proyecto de análisis de datos con Power BI sobre las ventas de mi propio emprendimiento (clases particulares, desde 2020). Partí de registros escritos a mano y construí un tablero que responde una pregunta concreta: **¿los ingresos crecieron de verdad, o solo acompañaron a la inflación?**
 
-**Herramientas:** Power BI · Power Query · DAX · Excel · JSON · CSV
+*English summary: Power BI dashboard built from my own small business sales records. I digitized handwritten data, cleaned it with Power Query (ETL), added USD exchange rate (JSON) and Argentina's CPI (CSV), and used DAX to compare nominal sales, USD sales and inflation-adjusted sales.*
 
-## Preguntas que responde el análisis
+## Vista previa
 
-- ¿Cuáles son los productos de mayor rotación y los días de mayor demanda?
-- ¿Los ingresos crecieron en términos reales o solo en pesos corrientes?
-- ¿Cómo se ven los ingresos expresados en dólares?
-- ¿En qué épocas del año se concentra la demanda?
+![Dashboard](images/dashboard.png)
 
-## Datos
+## Qué hice
 
-| Fuente | Archivo | Contenido |
-|---|---|---|
-| Ventas e ingresos diarios | `Datos_Mi_Negocio.xlsx` | Registros escritos a mano, digitalizados en Excel |
-| Cotización del dólar blue | `blue.json` | Serie de cotización usada para expresar los ingresos en USD |
-| Inflación | `serie_ipc_divisiones.csv` | Serie de IPC por divisiones, usada para ajustar los ingresos por inflación |
+1. **Digitalización:** pasé a Excel los registros manuales de ventas e ingresos diarios.
+2. **ETL con Power Query:** integré y depuré tres fuentes distintas: Excel (ventas), JSON (cotización del dólar) y CSV (IPC).
+3. **Modelo de datos:** tablas de ventas, calendario, cotización del dólar e IPC, relacionadas por fecha.
+4. **Medidas en DAX:** ventas totales, ticket promedio, margen de rentabilidad, crecimiento por período, ventas en USD y ventas ajustadas por IPC.
+5. **Tablero interactivo:** ventas en pesos, en dólares y ajustadas por inflación, con filtros por año.
 
-**Período analizado:** septiembre de 2024 a septiembre de 2026 (el ajuste por inflación llega hasta agosto de 2026).
+## Qué encontré
 
-**Dato faltante:** no hay registros de septiembre a diciembre de 2025, porque los registros físicos originales se dañaron. Ese tramo aparece sin datos en el análisis.
+- **La demanda se concentra en fechas de examen.** Los picos de ventas coinciden con los períodos de exámenes, como julio y noviembre/diciembre.
+- **Los ingresos crecieron también en términos reales.** Al ajustar por inflación, la curva sigue en ascenso sostenido. No es solo efecto de los precios.
+- **En dólares la tendencia es similar:** los ingresos mensuales crecen a lo largo del período analizado.
+- Los primeros meses muestran valores bajos porque el emprendimiento recién empezaba.
 
-## Metodología
+## Limitaciones
 
-1. **ETL con Power Query:** integración y limpieza de fuentes heterogéneas (Excel, JSON y CSV), con transformaciones para unificar formatos y fechas.
-2. **Modelo de datos y medidas en DAX:**
-   - Ventas totales, ticket promedio, margen de rentabilidad y crecimiento por período.
-   - Ventas reales ajustadas por inflación (IPC), con base en septiembre de 2024.
-   - Ventas en dólares (cotización blue).
-3. **Visualización:** tablero interactivo con una vista de ingresos mensuales en USD y otra de ventas nominales frente a ventas reales ("¿Crecimiento real o inflación?").
+- **Faltan los registros de septiembre a diciembre de 2025** (el registro físico original se dañó). En el gráfico de línea ese tramo une agosto 2025 con enero 2026, así que **no refleja datos reales**. El tablero lo aclara con una nota.
+- Los datos se cargan manualmente. No es un tablero en tiempo real.
+- [Completar: qué serie o división del IPC usaste y cómo ajustaste las ventas.]
+
+## Próximo paso
+
+Reconstruir las ventas de ese período faltante a partir de los movimientos bancarios y comparar el resultado con los registros que sí se conservan.
+
+## Archivos
+
+| Archivo | Contenido |
+|---|---|
+| `dashboard_ventas.pbix` | Tablero de Power BI |
+| `Datos_Mi_Negocio.xlsx` | Registro de ventas |
+| `cotizacion_dolar.json` | Cotización del dólar |
+| `serie_ipc_divisiones.csv` | Serie del IPC |
+| `informe.pdf` | Informe del análisis |
+
+Para abrirlo hace falta Power BI Desktop. Si cambiás de lugar los archivos de datos, hay que actualizar las rutas en Power Query.
+
+## Herramientas
+
+Power BI · Power Query · DAX · Excel · JSON · CSV
+
 
 ## Hallazgos
 
